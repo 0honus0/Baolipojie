@@ -100,10 +100,11 @@ if __name__ == "__main__":
             baoli=Baolipaojie(user,password)
             baoli.getver()
             result=baoli.login()
-            if result.find('修改密码')!=-1:
+            if result.find('修改密码')!=-1 or result.find('修改密码')!=-1:
                 print('登陆成功')
                 print(password)
-                sys.exit(0)
+                with open('password.txt','w') as f:
+                    f.write(password)
             else:
                 print('登陆失败')
             n=n+1
